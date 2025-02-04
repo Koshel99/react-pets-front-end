@@ -1,42 +1,109 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
+  min-height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: fit-content(375px) 1fr;
+  gap: 1rem; /* Adds spacing between the sidebar and main content */
+}
+
+.sidebar-container {
   padding: 2rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #d4b5b5; /* More readable hex code */
+  min-width: 0;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.list-container {
+  display: flex;
+  flex-direction: column; /* Vertical stacking for list items */
+  justify-content: flex-start;
+  overflow-y: auto; /* `overlay` was deprecated, use `auto` for scroll */
+  max-height: 700px;
+  scrollbar-color: #680d0d40 transparent; /* More readable syntax */
+  width: 100%;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+ul {
+  padding-left: 0;
+  list-style: none;
+  max-width: 300px;
+  display: inline-block;
+  margin: 0; /* Removes default margin from <ul> */
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+li {
+  font-size: 1.6rem; /* Slightly smaller for better readability */
+  white-space: nowrap; /* Ensure text doesn't wrap */
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 1.2rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Adds hover effect */
 }
 
-.card {
-  padding: 2em;
+li:hover {
+  background-color: #ffd0d0; /* Highlight list item on hover */
 }
 
-.read-the-docs {
-  color: #888;
+.details-container {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%; /* Ensures the form container stretches fully */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%; /* Prevents the form from being too wide */
+}
+
+label {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem; /* Adds spacing between label and input */
+}
+
+input {
+  height: 2.5rem; /* Slightly taller input field for better UX */
+  width: 100%; /* Makes input width responsive */
+  max-width: 300px; /* Limits the width */
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  border-radius: 5px; /* Softens the edges of input */
+  border: 1px solid #ccc;
+  font-size: 1rem; /* Makes input text size more readable */
+}
+
+button {
+  width: 200px;
+  margin: 1rem;
+  padding: 0.8rem;
+  background-color: #5c5c5c; /* Dark button color */
+  color: #fff; /* White text on dark button */
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s ease; /* Adds hover effect */
+}
+
+button:hover {
+  background-color: #444; /* Darker shade on hover */
+}
+
+.button-container {
+  padding: 2rem;
+  outline: 0;
 }
